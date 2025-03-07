@@ -88,5 +88,7 @@ def shutdown_session(exception=None):
     db.session.remove()  # ✅ Closes the session properly after each request
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+    port = int(os.getenv("PORT", 5000))  # Ensures the app binds to the correct port
+    app.run(debug=False, host="0.0.0.0", port=port)
+
 
