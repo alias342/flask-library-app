@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            background: #1e1e1e;
+            padding: 25px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+        label {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #ddd;
+            text-align: left;
+            display: block;
+            margin-top: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #292929;
+            color: #ffffff;
+            margin-top: 5px;
+            font-size: 1rem;
+            transition: 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 8px #ffcc00;
+        }
+        .btn-submit {
+            background-color: #ffcc00;
+            color: #121212;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            margin-top: 20px;
+            border: none;
+            font-size: 1rem;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.5);
+        }
+        .btn-back {
+            margin-top: 20px;
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.3s ease;
+        }
+        .btn-back:hover {
+            text-decoration: underline;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>➕ Add a New Book</h1>
+
+    <div class="form-container">
+        <form action="{{ url_for('add') }}" method="POST">
+            <label for="name">📖 Book Name</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="author">✍️ Book Author</label>
+            <input type="text" name="author" id="author" required>
+
+            <label for="rating">⭐ Rating (1-10)</label>
+            <input type="number" name="rating" id="rating" step="0.1" min="0" max="10" required>
+
+            <button type="submit" class="btn-submit">📚 Add Book</button>
+        </form>
+    </div>
+
+    <a href="{{ url_for('home') }}" class="btn-back">⬅ Back to Library</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
